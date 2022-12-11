@@ -1,5 +1,6 @@
 package transportEnum;
 
+
 public enum LoadCapacity {
     N1(null, 3.5f),
     N2(3.5f, 12f),

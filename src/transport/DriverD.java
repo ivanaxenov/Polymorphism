@@ -1,11 +1,12 @@
 package transport;
 
-public class DriverD
-        <T extends Bus>
-        extends Driver {
-
+public class DriverD<T extends Bus> extends Driver {
     public DriverD(String driverFio, String possesionDriversLicense, float experience, Bus driverCar) {
         super(driverFio, possesionDriversLicense, experience, driverCar);
+    }
+
+    public DriverD(String driverFio, float experience, Transport driverCar) {
+        super(driverFio, experience, driverCar);
     }
 
     @Override
@@ -24,6 +25,11 @@ public class DriverD
     public void refuelCar() {
         System.out.println("Водитель заправился");
         System.out.println("Водитель оплатил заправку");
+    }
+
+    @Override
+    public boolean checkDriverLicence() {
+        return false;
     }
 
     @Override

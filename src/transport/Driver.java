@@ -15,11 +15,19 @@ public abstract class Driver {
         this.driverCar = driverCar;
     }
 
+    public Driver(String driverFio, float experience, Transport driverCar) {
+        this.driverFio = driverFio;
+        this.experience = experience;
+        this.driverCar = driverCar;
+    }
+
     public abstract void startCarMoving();
 
     public abstract void stopCarMoving();
 
     public abstract void refuelCar();
+
+    public abstract boolean checkDriverLicence();
 
     public String getDriverFio() {
         return driverFio;
@@ -32,7 +40,6 @@ public abstract class Driver {
             driverFio = "unknown";
         }
     }
-
     public String getPossesionDriversLicense() {
         String str = "";
         if (possesionDriversLicense == true) {
@@ -40,7 +47,6 @@ public abstract class Driver {
         }
         return str;
     }
-
     public void setPossesionDriversLicense(String possesionDriversLicense) {
         if (possesionDriversLicense == "есть") {
             this.possesionDriversLicense = true;
@@ -48,17 +54,14 @@ public abstract class Driver {
             this.possesionDriversLicense = false;
         }
     }
-
     public Transport getDriverCar() {
         return driverCar;
     }
-
     public void setDriverCar(Car driverCar) {
         if (driverCar != null) {
             this.driverCar = driverCar;
         }
     }
-
     public float getExperience() {
         return experience;
     }

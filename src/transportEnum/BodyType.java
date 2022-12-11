@@ -1,5 +1,6 @@
 package transportEnum;
 
+
 public enum BodyType {
     SENAD("Седан"),
     HATCHBACK("Хетчбек"),
