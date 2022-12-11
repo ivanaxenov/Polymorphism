@@ -1,14 +1,18 @@
+import transport.*;
+import transportEnum.BodyType;
+import transportEnum.CapacityType;
+import transportEnum.LoadCapacity;
 public class Main {
     public static void main(String[] args) {
-        Car zhiguli = new Car("Лада", "Жигули", 1.6f);
-        Car hyundai = new Car("Hyundai", "Solaris", 1.6f);
-        Car nissan = new Car("Nissan", "Almera", 2.2f);
-        FreightCar kamaz = new FreightCar("Камаз", "53605", 11.8f);
-        FreightCar uralaz = new FreightCar("УРАЛ", "М", 6.6f);
-        FreightCar volvo = new FreightCar("Volvo", "FH16", 16.1f);
-        Bus paz = new Bus("ПАЗ", "3205", 4.75f);
-        Bus mersedesBus = new Bus("Mercedes-Benz", "Sprinter", 3.0f);
-        Bus volkswagen = new Bus("Volkswagen", "Caddy", 2.0f);
+        Car zhiguli = new Car("Лада", "Жигули", 1.6f, BodyType.SENAD);
+        Car hyundai = new Car("Hyundai", "Solaris", 1.6f, BodyType.SENAD);
+        Car nissan = new Car("Nissan", "Almera", 2.2f, BodyType.SENAD);
+        FreightCar kamaz = new FreightCar("Камаз", "53605", 11.8f, LoadCapacity.N1);
+        FreightCar ural = new FreightCar("УРАЛ", "М", 6.6f, LoadCapacity.N2);
+        FreightCar volvo = new FreightCar("Volvo", "FH16", 16.1f, LoadCapacity.N3);
+        Bus paz = new Bus("ПАЗ", "3205", 4.75f, CapacityType.MEDIUM);
+        Bus mersedesBus = new Bus("Mercedes-Benz", "Sprinter", 3.0f, CapacityType.SMALL);
+        Bus volkswagen = new Bus("Volkswagen", "Caddy", 2.0f, CapacityType.SMALL);
 
         zhiguli.startMoving();
         zhiguli.maxSpeed();
@@ -35,5 +39,15 @@ public class Main {
         DriverD<Bus> kiruha = new DriverD<>("Родионов Кирилл Михайлович", "есть",
                 7f, mersedesBus);
         System.out.println(kiruha.toString());
+
+        zhiguli.printType();
+        hyundai.printType();
+        nissan.printType();
+        kamaz.printType();
+        ural.printType();
+        volvo.printType();
+        paz.printType();
+        mersedesBus.printType();
+        volkswagen.printType();
     }
 }

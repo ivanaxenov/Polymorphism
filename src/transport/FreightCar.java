@@ -1,9 +1,15 @@
-public class Bus
+package transport;
+
+import transportEnum.LoadCapacity;
+
+public class FreightCar
         extends Transport
         implements Competing {
+    private LoadCapacity loadCapacity;
 
-    public Bus(String brand, String model, float engineVolume) {
+    public FreightCar(String brand, String model, float engineVolume, LoadCapacity loadCapacity) {
         super(brand, model, engineVolume);
+        this.loadCapacity = loadCapacity;
     }
 
     @Override
@@ -14,6 +20,15 @@ public class Bus
     @Override
     public void stopMoving() {
         System.out.printf("%s %s заканчивает движение\n", getBrand(), getModel());
+    }
+
+    @Override
+    public void printType() {
+        if (loadCapacity != null) {
+            System.out.println(loadCapacity.toString());
+        } else {
+            System.out.println("Данных по транспортному средству недостаточно");
+        }
     }
 
 
@@ -31,6 +46,11 @@ public class Bus
     @Override
     public void maxSpeed() {
         System.out.printf("Максимальная скорость %s %s - %.3f\n", getBrand(), getModel(), (100 + Math.random() * 200));
+    }
+
+    @Override
+    public String toString() {
+        return getBrand() + "  " + getModel() + ".";
     }
 
 
